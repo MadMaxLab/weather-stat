@@ -1,0 +1,20 @@
+version: "3.4"
+
+services:
+  db:
+    image: postgres:13.2-alpine
+    restart: always
+    networks:
+      - weather_stat_net
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    logging:
+      options:
+        max-size: 10m
+
+networks:
+  weather_stat_net:
+    driver: bridge
