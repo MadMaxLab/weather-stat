@@ -14,8 +14,6 @@ public class CoreConfiguration {
 
   @Bean
   public WebClient configureWebClient() {
-    return WebClient.builder()
-        .baseUrl(weatherApiOptions.getUrl())
-        .build();
+    return WebClient.builder().baseUrl(weatherApiOptions.getUrl()).build();
   }
 }

@@ -12,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Slf4j
 @Service
+@SuppressWarnings("UnusedVariable")
 @RequiredArgsConstructor
 public class WeatherApiServiceImpl implements WeatherApiService {
   private final WeatherApiOptions weatherApiOptions;
@@ -19,12 +20,15 @@ public class WeatherApiServiceImpl implements WeatherApiService {
 
   @Override
   public HistoryDto getCityHistory(String city, LocalDate date) {
-    return webClient.post()
-        .uri(uriBuilder -> uriBuilder
-            .queryParam("key", weatherApiOptions.getKey())
-            .queryParam("q", city)
-            .queryParam("dt", date)
-            .build())
+    return webClient
+        .post()
+        .uri(
+            uriBuilder ->
+                uriBuilder
+                    .queryParam("key", weatherApiOptions.getKey())
+                    .queryParam("q", city)
+                    .queryParam("dt", date)
+                    .build())
         .retrieve()
         .onStatus(HttpStatus::isError, ClientResponse::createException)
         .bodyToMono(HistoryDto.class)

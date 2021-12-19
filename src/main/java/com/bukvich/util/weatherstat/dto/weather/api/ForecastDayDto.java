@@ -9,6 +9,7 @@ import lombok.Data;
 public class ForecastDayDto {
   LocalDate date;
   DayDto day;
+
   @JsonAlias("hour")
   List<HourDto> hours;
 }
