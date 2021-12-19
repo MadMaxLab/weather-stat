@@ -4,8 +4,6 @@ services:
   db:
     image: postgres:13.2-alpine
     restart: always
-    networks:
-      - weather_stat_net
     ports:
       - "5432:5432"
     environment:
@@ -14,7 +12,3 @@ services:
     logging:
       options:
         max-size: 10m
-
-networks:
-  weather_stat_net:
-    driver: bridge
