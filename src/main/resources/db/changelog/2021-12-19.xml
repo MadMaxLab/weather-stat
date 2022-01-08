@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="Maxim Bukvich" id="1639929983768-1">
+        <createTable tableName="city">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_city"/>
+            </column>
+            <column name="public_id" type="uuid">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UC_city_public_id"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" notNullConstraintName="NN_city_name"/>
+            </column>
+            <column name="region" type="VARCHAR(511)"/>
+            <column name="country" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
