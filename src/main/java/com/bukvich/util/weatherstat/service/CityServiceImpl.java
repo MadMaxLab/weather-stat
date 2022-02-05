@@ -12,18 +12,24 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 public class CityServiceImpl implements CityService {
-    private final CityRepository cityRepository;
+  private final CityRepository cityRepository;
 
-    @Override
-    @Transactional
-    public CityInfo create(@NonNull CityInput input) {
-        City city = City.builder()
-                .publicId(input.publicId())
-                .name(input.name())
-                .country(input.country())
-                .region(input.region())
-                .build();
+  @Override
+  @Transactional
+  public CityInfo create(@NonNull CityInput input) {
+    City city =
+        City.builder()
+            .publicId(input.publicId())
+            .name(input.name())
+            .country(input.country())
+            .region(input.region())
+            .build();
 
-        return cityRepository.getById(cityRepository.saveAndFlush(city).getId(), CityInfo.class);
-    }
+    return cityRepository.getById(cityRepository.saveAndFlush(city).getId(), CityInfo.class);
+  }
+
+  @Override
+  public CityInfo getById(int cityId) {
+    return cityRepository.getById(cityId, CityInfo.class);
+  }
 }
