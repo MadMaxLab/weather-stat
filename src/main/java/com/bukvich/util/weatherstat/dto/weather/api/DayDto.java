@@ -6,23 +6,23 @@ import lombok.Data;
 @Data
 public class DayDto {
   @JsonAlias("maxtemp_c")
-  private Double maxTemp;
+  private Float maxTemp;
 
   @JsonAlias("mintemp_c")
-  private Double minTemp;
+  private Float minTemp;
 
   @JsonAlias("avgtemp_c")
-  private Double avgTemp;
+  private Float avgTemp;
 
   @JsonAlias("maxwind_kph")
-  private Double maxWind;
+  private Float maxWind;
 
   @JsonAlias("totalprecip_mm")
-  private Double totalPrecipitation;
+  private Float totalPrecipitation;
 
   @JsonAlias("avgvis_km")
-  private Double avgVision;
+  private Float avgVision;
 
   @JsonAlias("avghumidity")
-  private Double avgHumidity;
+  private Float avgHumidity;
 }
