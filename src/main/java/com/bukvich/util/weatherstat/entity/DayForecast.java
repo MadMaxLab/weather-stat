@@ -1,32 +1,21 @@
 package com.bukvich.util.weatherstat.entity;
 
 import java.time.LocalDate;
-import java.util.Objects;
-import java.util.UUID;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.Hibernate;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Getter
 @Setter
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DayForecast {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
-
-  private UUID publicId;
-
+@SuppressWarnings("SameNameButDifferent")
+public class DayForecast extends BaseEntity {
   private LocalDate date;
 
   private Integer cityId;
@@ -44,21 +33,4 @@ public class DayForecast {
   private Float avgVision;
 
   private Float avgHumidity;
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
-      return false;
-    }
-    DayForecast dayForecast = (DayForecast) o;
-    return Objects.equals(publicId, dayForecast.publicId);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(publicId);
-  }
 }
