@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="Maxim Bukvich" id="1644760824801-1">
+        <createTable tableName="hour_forecast">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_hour_forecast"/>
+            </column>
+            <column name="public_id" type="uuid">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UC_hour_forecast_public_id"/>
+            </column>
+            <column name="city_id" type="INT">
+                <constraints foreignKeyName="FK_hour_forecast_city_id"
+                             referencedTableName="city"
+                             referencedColumnNames="id"
+                             nullable="false"
+                             notNullConstraintName="NN_hour_forecast_city_id"/>
+            </column>
+            <column name="local_date_time" type="timestamp">
+                <constraints nullable="false" notNullConstraintName="NN_hour_forecast_local_date_time_id"/>
+            </column>
+            <column name="temp" type="numeric(4,1)"/>
+            <column name="wind_speed" type="numeric(4,1)"/>
+            <column name="humidity" type="numeric(4,1)"/>
+            <column name="cloud_rate" type="numeric(4,1)"/>
+            <column name="will_it_rain" type="boolean"/>
+            <column name="chance_of_rain" type="numeric(4,1)"/>
+            <column name="will_it_snow" type="boolean"/>
+            <column name="chance_of_snow" type="numeric(4,1)"/>
+            <column name="gust" type="numeric(4,1)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

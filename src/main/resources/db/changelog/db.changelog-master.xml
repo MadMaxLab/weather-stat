@@ -7,4 +7,5 @@
 
     <include file="classpath:db/changelog/2021-12-19.xml"/>
     <include file="classpath:db/changelog/2022-01-30.xml"/>
+    <include file="classpath:db/changelog/2022-02-13.xml"/>
 </databaseChangeLog>
