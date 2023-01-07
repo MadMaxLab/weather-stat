@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 import lombok.Builder;
 
+@Builder
 public record DayForecastInput(
     UUID publicId,
     LocalDate date,
@@ -14,10 +15,4 @@ public record DayForecastInput(
     float maxWind,
     float totalPrecipitation,
     float avgVision,
-    float avgHumidity) {
-
-  // Cause Intellij Idea bug https://youtrack.jetbrains.com/issue/IDEA-266513
-  // TODO: delete me when Idea 2022.1 releases
-  @Builder
-  public DayForecastInput {}
-}
+    float avgHumidity) {}

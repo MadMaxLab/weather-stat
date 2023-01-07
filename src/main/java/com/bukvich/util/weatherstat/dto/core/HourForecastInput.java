@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 import lombok.Builder;
 
+@Builder
 public record HourForecastInput(
     UUID publicId,
     Integer cityId,
@@ -16,10 +17,4 @@ public record HourForecastInput(
     Float chanceOfRain,
     Boolean willItSnow,
     Float chanceOfSnow,
-    Float gust) {
-
-  // Cause Intellij Idea bug https://youtrack.jetbrains.com/issue/IDEA-266513
-  // TODO: delete me when Idea 2022.1 releases
-  @Builder
-  public HourForecastInput {}
-}
+    Float gust) {}
