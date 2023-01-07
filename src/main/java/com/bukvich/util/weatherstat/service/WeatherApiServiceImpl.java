@@ -4,15 +4,12 @@ import com.bukvich.util.weatherstat.configuration.WeatherApiOptions;
 import com.bukvich.util.weatherstat.dto.weather.api.HistoryDto;
 import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 
-@Slf4j
 @Service
-@SuppressWarnings("UnusedVariable")
 @RequiredArgsConstructor
 public class WeatherApiServiceImpl implements WeatherApiService {
   private final WeatherApiOptions weatherApiOptions;
